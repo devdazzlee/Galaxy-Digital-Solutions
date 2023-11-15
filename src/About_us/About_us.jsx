@@ -18,14 +18,25 @@ const About_us = () => {
 <MidSec/>
 <About_Cards/>
 <Heading_Services
-        text1="Service 1"
-        text2="Service 2"
-        text3="Service 3"
-        para="This is a sample paragraph for the services."
+
+
+
+        text1="DESIGN ."
+        text2="DEVELOPMENT ."
+        text3="MARKETING"
+        para="Our Team Is Our Greatest Asset."
       />
 
 <AboutCards_reverse/>
+<Heading_Services
+        text1="Marketing,"
+        text2="Development,"
+        text3="Layout"
+        para="We Are Always Focused On Our Client's"
+      />
+<div className='my-14'  >
 <About_Card3/>
+</div>
 <ThirdServices/>
 <Sixth/>
 <Footer/>

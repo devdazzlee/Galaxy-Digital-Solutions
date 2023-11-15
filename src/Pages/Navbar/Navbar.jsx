@@ -69,18 +69,10 @@ function ResponsiveAppBar() {
             Services 
             
             </Link>
-
-            <div className="relative">
-              <button
-                type="button"
-                className="group  rounded-md text-white inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onClick={() => (setFlyerTwo(!flyerTwo), setFlyer(false))}
-              >
-                <span>Testimonials</span>
-              </button>
-         
+            <Link   className="text-base font-medium text-white hover:text-white" to={'/Testimonials'}>
+            Testimonials
             
-            </div>
+            </Link>
             <Link   className="text-base font-medium text-white hover:text-white" to={'/Contact-us'}>
             Contact Us  
             
@@ -97,7 +89,7 @@ function ResponsiveAppBar() {
     </span>
 
               Call Anytime  <br />
-    <span class="text-white ml-8 text-base font-medium text-white hover:text-white ">+92 3456272088</span>
+    <span class="text-white ml-8 text-base font-medium text-white hover:text-white ">+92 327 8227842</span>
 
               
             </a>
@@ -105,16 +97,7 @@ function ResponsiveAppBar() {
           </div>
         </div>
       </div>
-      {/*
-  Mobile menu, show/hide based on mobile menu state.
-
-  Entering: "duration-200 ease-out"
-    From: ""
-    To: ""
-  Leaving: "duration-100 ease-in"
-    From: "opacity-100 scale-100"
-    To: "opacity-0 scale-95"
-*/}
+    
 
       <div
         className={
@@ -167,8 +150,8 @@ function ResponsiveAppBar() {
 
 
 
-
-                <a
+              <Link   className="text-base font-medium text-white hover:text-white" to={'/'}>
+              <a
                   href="#"
                   className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
@@ -176,7 +159,12 @@ function ResponsiveAppBar() {
                   Home
                   </span>
                 </a>
-                <a
+            
+            </Link> 
+
+
+            <Link   className="text-base font-medium text-white hover:text-white" to={'/About-us'}>
+            <a
                   href="#"
                   className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
@@ -184,7 +172,11 @@ function ResponsiveAppBar() {
                   About
                   </span>
                 </a>
-                <a
+            </Link>
+            
+
+            <Link   className="text-base font-medium text-white hover:text-white" to={'/Services'}>
+            <a
                   href="#"
                   className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
@@ -192,7 +184,10 @@ function ResponsiveAppBar() {
                   Services
                   </span>
                 </a>
-                <a
+            
+            </Link>
+            <Link   className="text-base font-medium text-white hover:text-white" to={'/Testimonials'}>
+            <a
                   href="#"
                   className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
@@ -200,7 +195,9 @@ function ResponsiveAppBar() {
                   Testimonials
                   </span>
                 </a>
-                <a
+            </Link>
+            <Link   className="text-base font-medium text-white hover:text-white" to={'/Contact-us'}>
+            <a
                   href="#"
                   className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                 >
@@ -208,6 +205,12 @@ function ResponsiveAppBar() {
                   Contact Us
                   </span>
                 </a>
+            </Link>
+               
+             
+               
+              
+               
               </nav>
             </div>
           </div>
