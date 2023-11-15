@@ -9,12 +9,12 @@ const ServicesTabs = () => {
     <div    className='flex flex-col justify-center my-12' >
 
 <Tabs>
-<TabList className={'text-center custom-tabs'} style={{ "border": "none" }}>
-  <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Digital Marketing</Tab>
-  <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>E-Commerce Marketing</Tab>
-  <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Branding</Tab>
-  <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Web & Mobile App</Tab>
-</TabList>
+<TabList className={'text-center custom-tabs'} style={{ "border": "none"   }}>
+      <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Digital Marketing</Tab>
+      <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>E-Commerce Marketing</Tab>
+      <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Branding</Tab>
+      <Tab style={{ "fontSize": "1.3rem", "color": "#FEA7BD" , "fontWeight" : "bold" }}>Web & Mobile App</Tab>
+    </TabList>
 
 
 

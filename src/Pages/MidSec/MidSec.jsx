@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Slide } from 'react-slideshow-image';
 import { Fade } from 'react-slideshow-image';
 import { Zoom } from 'react-slideshow-image';
@@ -92,9 +93,13 @@ const MidSec = () => {
           Upgrade your brand with our all-inclusive branding & marketing solutions.
         </p>
         {/* <button className='bg-gradient-to-r from-purple-600 via-pink-400 px-6 sm:px-8 py-3 font-bold rounded text-white'> */}
+        <Link    to={'/Contact-us'}>
+  
+            
         <button  style={{"background" : "linear-gradient(20deg, #5A2E7F, #CA669D, #E499C2)"}} className=' px-6 sm:px-8 py-3 font-bold rounded text-white'>
           Let's Talk
         </button>
+            </Link> 
         <p className='text-white py-2'>
           Based on 10,000+ reviews.
         </p>

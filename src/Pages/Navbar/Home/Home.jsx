@@ -17,7 +17,7 @@ const Home = () => {
     <div>
 <ResponsiveAppBar/>
 <MidSec/>
-{/* <ThirdSec/> */}
+{/* /<ThirdSec/> */}
 <PlatFormplay/>
 <ThirdServices/>
 <CuttingEdge/>

@@ -85,3 +85,11 @@ body{
   border-bottom: none !important; /* Remove the bottom border */
   outline: none; /* Remove the default focus outline */
 }
+@media (max-width: 767px) {
+  .custom-tabs {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
