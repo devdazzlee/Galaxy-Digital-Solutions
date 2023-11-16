@@ -45,7 +45,7 @@ const ContactusForm = () => {
     
         try {
           // Make API request using Axios
-          const response = await axios.post('http://localhost:8000/api/v1/contact', formData);
+          const response = await axios.post('https://amused-culottes-bear.cyclic.app/api/v1/contact', formData);
     
           // Check the API response and handle accordingly
           console.log('API Response:', response.data);
