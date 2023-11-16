@@ -6,7 +6,7 @@ const AboutCards_reverse = () => {
    
     <section className="text-gray-600 body-font my-10">
      <div className="container mx-auto flex flex-col-reverse items-center md:flex-row lg:w-10/12  xl:w-10/12		">
-      <div className="lg:w-1/2 w-full">
+      <div className="lg:w-1/2 w-full md:mr-12">
           <a href="#" target="_blank">
             <img
               className="object-cover object-center rounded w-full h-64 md:h-80 lg:h-auto"
@@ -15,7 +15,7 @@ const AboutCards_reverse = () => {
             />
           </a>
         </div>
-        <div className="ml-12 lg:w-1/2 lg:pr-12 md:pr-8 mb-8 md:mb-0 text-center md:text-left">
+        <div className=" lg:w-1/2 lg:pr-12 md:pr-8 mb-8 md:mb-0 text-center md:text-left">
           <h1 style={{"color" : "#D67DAE"}} className="title-font sm:text-5xl text-3xl mb-4 font-bold  tracking-normal">
         
           Discipline-First Approach
