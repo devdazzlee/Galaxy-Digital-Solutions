@@ -1,13 +1,82 @@
-import React from 'react'
-
+import React, { useState , useEffect } from 'react';
+import axios from 'axios';
 const ContactusForm = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    
+      const [showPopup, setShowPopup] = useState(false);
+    
+      useEffect(() => {
+        if (showPopup) {
+          const timeoutId = setTimeout(() => {
+            setShowPopup(false);
+          }, 5000);
+    
+          return () => clearTimeout(timeoutId);
+        }
+      }, [showPopup]);
+    
+      const handleChange = (e) => {
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value,
+        });
+      };
+    
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        // Validate form fields
+        if (formData.name.trim() === '' || formData.email.trim() === '' || formData.subject.trim() === '' || formData.message.trim() === '') {
+          alert('Please fill in all fields');
+          return;
+        }
+    
+        // Validate email using regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+          alert('Please enter a valid email address');
+          return;
+        }
+    
+        try {
+          // Make API request using Axios
+          const response = await axios.post('http://localhost:8000/api/v1/contact', formData);
+    
+          // Check the API response and handle accordingly
+          console.log('API Response:', response.data);
+    
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+          });
+    
+          // Show pop-up message
+          setShowPopup(true);
+        } catch (error) {
+          console.error('API Error:', error.response ? error.response.data : error.message);
+          alert('An error occurred while sending the message. Please try again.');
+        }
+      };
+    
   return (
     <>
-<div class="relative flex items-center justify-center min-h-screen sm:items-center sm:pt-0">
-    <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <div class="mt-8 overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-6 mr-2 sm:rounded-lg shadow-lg">
+    {showPopup && (
+        <div className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded">
+          Message sent successfully!
+        </div>
+      )}
+      <div className="relative flex items-center justify-center min-h-screen sm:items-center sm:pt-0">
+        <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+          <div className="mt-8 overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div class="p-6 mr-2 sm:rounded-lg shadow-lg">
                     <h1  style={{ color: "#F170B8" }} class="text-4xl sm:text-5xl font-extrabold tracking-tight">
                         Get in Touch
                     </h1>
@@ -44,42 +113,87 @@ const ContactusForm = () => {
                     </div>
                 </div>
 
-                <form class="p-6 flex flex-col justify-center sm:rounded-lg shadow-lg">
-                    <h1 style={{ color: "#F170B8" }} class="text-4xl sm:text-5xl font-extrabold tracking-tight">Send Us a Message</h1>
-                    <div class="flex flex-col mt-4">
-                        <label for="name" class="text-sm font-semibold text-white">Your Name</label>
-                        <input type="text" name="name" id="name" placeholder="John Doe" class="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none" />
-                    </div>
+              <form
+                className="p-6 flex flex-col justify-center sm:rounded-lg shadow-lg"
+              >
+                <h1 style={{ color: "#F170B8" }} className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                  Send Us a Message
+                </h1>
+                <div className="flex flex-col mt-4">
+                  <label htmlFor="name" className="text-sm font-semibold text-white">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    className="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                </div>
 
-                    <div class="flex flex-col mt-4">
-                        <label for="email" class="text-sm font-semibold text-white">Your Email</label>
-                        <input type="email" name="email" id="email" placeholder="example@example.com" class="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none" />
-                    </div>
+                <div className="flex flex-col mt-4">
+                  <label htmlFor="email" className="text-sm font-semibold text-white">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="example@example.com"
+                    className="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                </div>
 
-                    <div class="flex flex-col mt-4">
-                        <label for="tel" class="text-sm font-semibold text-white">Subject</label>
-                        <input type="text" name="tel" id="tel" placeholder="Regarding Your Inquiry" class="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none" />
-                    </div>
+                <div className="flex flex-col mt-4">
+                  <label htmlFor="tel" className="text-sm font-semibold text-white">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    name="subject"
+                    id="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Regarding Your Inquiry"
+                    className="w-full mt-2 py-3 px-3 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-400 dark:border-gray-700 text-gray-800 dark:text-white font-semibold focus:border-indigo-500 focus:outline-none"
+                  />
+                </div>
 
-                    <div class="flex flex-col mt-4">
-                        <label for="message" class="text-sm font-semibold text-white">Message</label>
-                        <textarea id="message" rows="4" class="block p-2.5 mt-2 text-sm text-gray-900 bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-400 dark:border-gray-700 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your message here..."></textarea>
-                    </div>
+                <div className="flex flex-col mt-4">
+                  <label htmlFor="message" className="text-sm font-semibold text-white">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="block p-2.5 mt-2 text-sm text-gray-900 bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-400 dark:border-gray-700 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Write your message here..."
+                  ></textarea>
+                </div>
 
-                    <button type="submit" style={{ "background": "linear-gradient(20deg, #5A2E7F, #CA669D, #E499C2)" }} className='font-serif my-4 text-center px-12 sm:px-8 py-3 font-bold rounded text-white'>
-                        Send Message
-                    </button>
-                </form>
+                <button
+                onClick={handleSubmit}
+                  type="submit"
+                  style={{ background: 'linear-gradient(20deg, #5A2E7F, #CA669D, #E499C2)' }}
+                  className="font-serif my-4 text-center px-12 sm:px-8 py-3 font-bold rounded text-white"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
+          </div>
         </div>
-    </div>
-</div> 
-
-
-
-
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ContactusForm
+export default ContactusForm;
