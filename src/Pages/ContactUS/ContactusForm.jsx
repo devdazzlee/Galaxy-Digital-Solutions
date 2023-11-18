@@ -45,6 +45,7 @@ const ContactusForm = () => {
     
         try {
           // Make API request using Axios
+          // 
           const response = await axios.post('https://amused-culottes-bear.cyclic.app/api/v1/contact', formData);
     
           // Check the API response and handle accordingly
@@ -108,7 +109,7 @@ const ContactusForm = () => {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         <div class="ml-4 text-md tracking-wide font-semibold w-40">
-                            GalaxyDigital@gmail.com
+                            Galaxysolutionsincorporated@gmail.com
                         </div>
                     </div>
                 </div>
