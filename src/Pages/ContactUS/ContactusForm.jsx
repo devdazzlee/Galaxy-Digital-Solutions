@@ -60,6 +60,7 @@ const ContactusForm = () => {
     
           // Show pop-up message
           setShowPopup(true);
+          alert("Form Has been Submitted")
         } catch (error) {
           console.error('API Error:', error.response ? error.response.data : error.message);
           alert('An error occurred while sending the message. Please try again.');
