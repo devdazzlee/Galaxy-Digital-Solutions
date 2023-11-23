@@ -54,7 +54,6 @@ const ContactusForm = () => {
             message: '',
           });
     
-          // Show pop-up message
           setShowPopup(true);
           alert("Form Has been Submitted")
         } catch (error) {

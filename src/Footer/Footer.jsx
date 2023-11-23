@@ -1,9 +1,10 @@
 import React from 'react'
 import logo from '../Images/galaxy web logo.png'
+import './Footer.css'
 const Footer = () => {
   return (
     // <!-- Footer container -->
-    <footer  class=" text-center text-white   lg:text-left">
+    <footer  class="Footer-background text-center text-white   lg:text-left">
       <div
         class="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
         <div class="mr-12 hidden lg:block">
